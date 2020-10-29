@@ -11,15 +11,15 @@ export default {
   layout: 'mobile',
   head () {
     return {
-			title: "Youtuber Challenge, rzuć wyzwanie youtuberowi!",
-			meta: [
-				{
-					hid: "description",
-					name: "description",
-					content: "Znajdź swojego ulubionego youtubera i rzuć mu wyzwanie."
-				}
-			]
-		}
+      title: 'Youtuber Challenge, rzuć wyzwanie youtuberowi!',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Znajdź swojego ulubionego youtubera i rzuć mu wyzwanie.'
+        }
+      ]
+    }
   },
   setup () {}
 }

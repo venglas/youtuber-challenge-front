@@ -1,7 +1,6 @@
 .<template>
-  <header class="app-header app-header--mobile">
-    header
-    <!-- logo -->
+  <header class="app-header--mobile">
+    <logo />
     <!-- searcher -->
     <!-- user avatar -->
   </header>
@@ -14,10 +13,11 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/assets/scss/variables.scss';
 .app-header {
-  
   &--mobile {
-  
+    height: $S_mobile_header_height;
+    border: 1px solid red;
   }
 }
 </style>

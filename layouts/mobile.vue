@@ -9,17 +9,12 @@
 import AppHeaderMobile from '../components/layout/app-header/app-header-mobile.vue'
 export default {
   components: {
-    'app-header-mobile': AppHeaderMobile
+    AppHeaderMobile
   }
 }
 </script>
 
-<style>
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+<style lang="scss">
+@import '@/assets/scss/reset';
+@import '@/assets/scss/base';
 </style>
