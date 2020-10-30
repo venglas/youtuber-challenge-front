@@ -2,7 +2,7 @@
   <header class="app-header--mobile">
     <logo />
     <searcher />
-    <!-- searcher -->
+    <user-avatar />
     <!-- user avatar -->
   </header>
 </template>
@@ -21,7 +21,7 @@ export default {
     align-items: center;
     justify-content: space-around;
     height: $S_mobile_header_height;
-    border: 1px solid red;
+    background-color: $C_light-header;
   }
 }
 </style>

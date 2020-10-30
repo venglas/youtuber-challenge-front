@@ -20,7 +20,5 @@ export default {}
 </script>
 
 <style lang="scss">
-.icon-arrow {
-  width: 3rem;
-}
+.icon-arrow {}
 </style>

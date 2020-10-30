@@ -17,4 +17,9 @@ export default {
 <style lang="scss">
 @import '@/assets/scss/reset';
 @import '@/assets/scss/base';
+@import '@/assets/scss/variables';
+.app-mobile {
+  background-color: $C_light-base-bg;
+  min-height: 100vh;
+}
 </style>

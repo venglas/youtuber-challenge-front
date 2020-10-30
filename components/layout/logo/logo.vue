@@ -1,5 +1,5 @@
 <template>
-  <i-logo :hover-animation="false" />
+  <i-logo :hover-animation="false" class="logo" />
 </template>
 
 <script>
@@ -12,5 +12,7 @@ export default {
 </script>
 
 <style>
-
+.logo {
+  height: 75%;
+}
 </style>

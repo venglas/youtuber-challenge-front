@@ -1,6 +1,6 @@
 <template>
   <div class="searcher" :class="{ 'searcher--full-size': isSearcherOpen }">
-    <i-arrow v-show="isSearcherOpen" @click.native="toggleSearcher" />
+    <i-arrow v-show="isSearcherOpen" class="searcher__icon" @click.native="toggleSearcher" />
     <input
       ref="searcherInput"
       v-model="searchingText"
@@ -69,6 +69,13 @@ export default {
   }
   &__input {
     opacity: 0;
+  }
+  &__icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    @include space-p-med;
+    background-color: $C_light-icon-bg;
+    border-radius: 50%;
   }
 }
 </style>

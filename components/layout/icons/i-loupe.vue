@@ -30,7 +30,5 @@ export default {}
 </script>
 
 <style>
-.icon-loupe {
-  width: 2.5rem;
-}
+.icon-loupe {}
 </style>
