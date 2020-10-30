@@ -3,7 +3,6 @@
     <logo />
     <searcher />
     <user-avatar />
-    <!-- user avatar -->
   </header>
 </template>
 
