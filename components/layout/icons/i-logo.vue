@@ -73,7 +73,7 @@ export default {
 @import '@/assets/scss/variables';
 
 .icon-logo {
-  width: 100%;
+  width: 7rem;
   height: 100%;
   &:hover {
     .challenge {
