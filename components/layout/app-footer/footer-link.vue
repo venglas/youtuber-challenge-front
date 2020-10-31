@@ -10,7 +10,7 @@ export default {
   props: {
     linkTo: { type: String, default: '' }
   },
-  setup (props) {
+  setup (props: any) {
     const link = computed((): String => `/${props.linkTo}`)
 
     return {
