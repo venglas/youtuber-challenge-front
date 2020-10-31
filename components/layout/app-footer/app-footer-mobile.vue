@@ -3,6 +3,18 @@
     <footer-link link-to="home">
       <i-home class="icon" />
     </footer-link>
+
+    <footer-link link-to="explore">
+      <i-explore class="icon" />
+    </footer-link>
+
+    <footer-link link-to="add-post">
+      <i-add class="icon" />
+    </footer-link>
+
+    <footer-link link-to="notifications">
+      <i-notification class="icon" />
+    </footer-link>
   </footer>
 </template>
 
