@@ -25,7 +25,7 @@ export default {
 
 .footer-link {
   .icon {
-    @include space-p-med;
+    @include space-p-big;
     width: 70px;
   }
 }
