@@ -1,6 +1,7 @@
 <template>
   <div class="user-avatar">
-    <img src="https://picsum.photos/70" alt="">
+    <!-- <img src="https://picsum.photos/70" alt=""> -->
+    <i-avatar-default />
   </div>
 </template>
 
