@@ -4,6 +4,7 @@
     <main>
       <Nuxt />
     </main>
+    <app-footer-mobile />
   </div>
 </template>
 
