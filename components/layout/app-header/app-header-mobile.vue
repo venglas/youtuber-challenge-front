@@ -2,12 +2,25 @@
   <header class="app-header--mobile">
     <logo />
     <searcher />
-    <user-avatar />
+    <user-avatar @click.native="toggleMenu"/>
+    <user-menu />
   </header>
 </template>
 
 <script>
+import { computed } from '@nuxtjs/composition-api'
+import clickOutside from 'vue-click-outside'
+
 export default {
+  directives: {
+    clickOutside
+  },
+  setup(_, {root: { $store } }) {
+    const isMenuOpen = computed(() => $store.state.app.menu.isOpen)
+    const toggleMenu = () => { $store.commit('app/toggleMenu') }
+
+    return { toggleMenu }
+  }
 }
 </script>
 
