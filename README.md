@@ -1,4 +1,4 @@
-# youtuber-challenge
+# youtuber-challenge-front
 
 ## Build Setup
 

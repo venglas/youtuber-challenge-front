@@ -158,4 +158,8 @@ export default {}
 </script>
 
 <style>
+.icon-avatar-default {
+  height: 100%;
+  width: 100%;
+}
 </style>
