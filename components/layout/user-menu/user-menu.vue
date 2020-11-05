@@ -5,6 +5,7 @@
 <template>
   <nav class="menu-user" v-if="isMenuOpen" v-click-outside="toggleMenu">
     <header class="menu-user__header">
+      <logo />
       <button-close @click.native="toggleMenu" class="menu-user__button-close"/>
     </header>
     <section class="menu-items-wrapper">
@@ -64,9 +65,11 @@ export default {
 
   &__header {
     display: flex;
-    justify-content: flex-end;
-    @include space-p-small;
+    justify-content: space-between;
+    align-items: center;
+    height: $S_mobile_header_height;
     @include shadow-box-small;
+    @include space-p-h-med;
     background-color: $C_light-user-menu-bg;
     .button-close {}
   }
