@@ -52,6 +52,7 @@ export default {
 <style lang="scss">
 @import '@/assets/scss/variables';
 @import '@/assets/scss/mixins';
+@import '@/assets/scss/helpers';
 
 .menu-user {
   position: absolute;
@@ -79,6 +80,8 @@ export default {
         align-items: center;
         font-size: 1.7rem;
         color: $C_light-gray-font;
+        @include space-p-h-med;
+        @include animate-bg-on-click(400ms, #fff);
       }
       &__icon {
         height: 70%;
