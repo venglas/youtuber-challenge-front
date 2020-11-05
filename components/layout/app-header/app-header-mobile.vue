@@ -3,7 +3,6 @@
     <logo />
     <searcher />
     <user-avatar @click.native="toggleMenu"/>
-    <user-menu />
   </header>
 </template>
 
@@ -26,8 +25,11 @@ export default {
 
 <style lang="scss">
 @import '@/assets/scss/variables.scss';
+@import '@/assets/scss/shadows.scss';
+
 .app-header {
   &--mobile {
+    @include shadow-box-small;
     position: relative;
     display: flex;
     align-items: center;

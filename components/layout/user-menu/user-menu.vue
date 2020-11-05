@@ -1,5 +1,16 @@
+// TODO:
+// Add other options for menu
+// hide element if user is logged out
+
 <template>
-  <h1 v-click-outside="toggleMenu" v-if="isMenuOpen">user menu</h1>
+  <nav class="menu-user" v-if="isMenuOpen" v-click-outside="toggleMenu">
+    <ul>
+      <li>signup</li>
+      <li>login</li>
+      <li>feedback</li>
+      <li>help</li>
+    </ul>
+  </nav>
 </template>
 
 <script>
@@ -20,5 +31,14 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/assets/scss/variables.scss';
 
+.menu-user {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: $C_light-user-menu-bg;
+  @include position-max;
+}
 </style>

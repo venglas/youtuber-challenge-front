@@ -1,6 +1,7 @@
 <template>
   <div class="app-mobile">
     <app-header-mobile />
+    <user-menu />
     <main>
       <Nuxt />
     </main>
