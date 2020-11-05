@@ -3,6 +3,7 @@
 // add log out id user is logged in
 // add links
 <template>
+<transition name="toggle-user-menu">
   <nav class="menu-user" v-if="isMenuOpen" v-click-outside="toggleMenu">
     <header class="menu-user__header">
       <logo />
@@ -10,15 +11,16 @@
     </header>
     <section class="menu-items-wrapper">
       <ul class="menu">
-        <li v-for="{ name, icon } in menuItems" :key="name" class="menu__item">
+        <router-link v-for="{ name, icon, link } in menuItems" :key="name" class="menu__item" :to="link" @click.native="toggleMenu()" tag="li">
           <component :is="icon" class="menu__icon"/>
           <span>
             {{ name }}
           </span>
-        </li>
+        </router-link>
       </ul>
     </section>
   </nav>
+</transition>
 </template>
 
 <script>
@@ -37,15 +39,18 @@ export default {
   setup(_, {root: { $store } }) {
     const isMenuOpen = computed(() => $store.state.app.menu.isOpen)
     const toggleMenu = () => { $store.commit('app/toggleMenu') }
+    // const delayedToggleMenu = () => setTimeout(() => {
+    //   $store.commit('app/toggleMenu')
+    // }, 250)
     const menuItems = ref([
-      { name: 'Sign up', icon: iSignUp },
-      { name:'Login', icon: iLogin },
-      { name: 'Feedback', icon: iFeedback },
-      { name: 'Help', icon: iHelp },
-      { name: 'Settings', icon: iSettings }
+      { name: 'Sign up', icon: iSignUp, link: '/sign-up' },
+      { name:'Login', icon: iLogin, link: '/sign-up' },
+      { name: 'Feedback', icon: iFeedback, link: '/sign-up' },
+      { name: 'Help', icon: iHelp, link: '/sign-up' },
+      { name: 'Settings', icon: iSettings, link: '/sign-up' }
     ])
 
-    return { isMenuOpen, toggleMenu, menuItems }
+    return { isMenuOpen, menuItems, toggleMenu }
   }
 }
 </script>
@@ -54,6 +59,7 @@ export default {
 @import '@/assets/scss/variables';
 @import '@/assets/scss/mixins';
 @import '@/assets/scss/helpers';
+@import '@/assets/scss/vue-transitions';
 
 .menu-user {
   position: absolute;
