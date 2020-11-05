@@ -62,10 +62,11 @@ export default {
 @import '@/assets/scss/vue-transitions';
 
 .menu-user {
-  position: absolute;
+  position: fixed;
   top: 0;
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
   background-color: $C_light-base-bg;
   @include position-max;
 
