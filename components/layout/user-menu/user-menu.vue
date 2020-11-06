@@ -3,30 +3,29 @@
 // add log out id user is logged in
 // add links
 <template>
-<transition name="toggle-user-menu">
-  <nav class="menu-user" v-if="isMenuOpen" v-click-outside="toggleMenu">
-    <header class="menu-user__header">
-      <logo />
-      <button-close @click.native="toggleMenu" class="menu-user__button-close"/>
-    </header>
-    <section class="menu-items-wrapper">
-      <ul class="menu">
-        <router-link v-for="{ name, icon, link } in menuItems" :key="name" class="menu__item" :to="link" @click.native="toggleMenu()" tag="li">
-          <component :is="icon" class="menu__icon"/>
-          <span>
-            {{ name }}
-          </span>
-        </router-link>
-      </ul>
-    </section>
-  </nav>
-</transition>
+  <transition name="toggle-user-menu">
+    <nav class="menu-user" v-if="isMenuOpen" v-click-outside="toggleMenu">
+      <header class="menu-user__header">
+        <logo />
+        <button-close @click.native="toggleMenu" class="menu-user__button-close"/>
+      </header>
+      <section class="menu-items-wrapper">
+        <ul class="menu">
+          <router-link v-for="{ name, icon, link } in menuItems" :key="name" class="menu__item" :to="link" @click.native="toggleMenu()" tag="li">
+            <component :is="icon" class="menu__icon" />
+            <span>
+              {{ name }}
+            </span>
+          </router-link>
+        </ul>
+      </section>
+    </nav>
+  </transition>
 </template>
 
 <script>
 import { computed, ref } from '@nuxtjs/composition-api'
 import clickOutside from 'vue-click-outside'
-import iSignUp from '@/components/layout/icons/i-sign-up'
 import iLogin from '@/components/layout/icons/i-login'
 import iFeedback from '@/components/layout/icons/i-feedback'
 import iHelp from '@/components/layout/icons/i-help'
@@ -36,15 +35,11 @@ export default {
   directives: {
     clickOutside
   },
-  setup(_, {root: { $store } }) {
+  setup( _, { root: { $store } }) {
     const isMenuOpen = computed(() => $store.state.app.menu.isOpen)
     const toggleMenu = () => { $store.commit('app/toggleMenu') }
-    // const delayedToggleMenu = () => setTimeout(() => {
-    //   $store.commit('app/toggleMenu')
-    // }, 250)
     const menuItems = ref([
-      { name: 'Sign up', icon: iSignUp, link: '/sign-up' },
-      { name:'Login', icon: iLogin, link: '/sign-up' },
+      { name: 'Login', icon: iLogin, link: '/login' },
       { name: 'Feedback', icon: iFeedback, link: '/sign-up' },
       { name: 'Help', icon: iHelp, link: '/sign-up' },
       { name: 'Settings', icon: iSettings, link: '/sign-up' }

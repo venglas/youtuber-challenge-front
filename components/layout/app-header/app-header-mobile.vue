@@ -30,7 +30,8 @@ export default {
 .app-header {
   &--mobile {
     @include shadow-box-small;
-    position: relative;
+    position: fixed;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
