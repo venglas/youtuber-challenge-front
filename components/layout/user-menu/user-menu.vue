@@ -11,7 +11,7 @@
       </header>
       <section class="menu-items-wrapper">
         <ul class="menu">
-          <router-link v-for="{ name, icon, link } in menuItems" :key="name" class="menu__item" :to="link" @click.native="toggleMenu()" tag="li">
+          <router-link v-for="{ name, icon, link } in menuItems" :key="name" class="menu__item" :to="link" tag="li" @click.native="toggleMenu()">
             <component :is="icon" class="menu__icon" />
             <span>
               {{ name }}

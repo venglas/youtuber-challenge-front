@@ -1,11 +1,17 @@
 <template>
   <div class="container">
-    <h1>Sign up</h1>
+    <form @submit.prevent="signIn()">
+      <form-input name="username" type="text" data-mutation-entry="userSignup/setUsername" />
+      <form-input name="email" type="email" data-mutation-entry="userSignup/setEmail" />
+      <form-input name="password" type="password" data-mutation-entry="userSignup/setPassword" />
+      <form-input name="confirm" type="password" data-mutation-entry="userSignup/setConfirmPassword" />
+      <input type="submit">
+    </form>
   </div>
 </template>
 
 <script lang="ts">
-// import { ref } from "@vue/composition-api";
+import { ref } from '@nuxtjs/composition-api'
 
 export default {
   layout: 'mobile',
@@ -21,7 +27,22 @@ export default {
       ]
     }
   },
-  setup () {}
+  setup () {
+    const username = ref('')
+    const email = ref('')
+    const password = ref('')
+    const confirmPassword = ref('')
+
+    const signIn = () => { }
+
+    return {
+      username,
+      email,
+      password,
+      confirmPassword,
+      signIn
+    }
+  }
 }
 </script>
 
