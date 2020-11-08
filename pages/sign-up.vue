@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form @submit.prevent="signIn()">
+    <form v-if="firstStage" @submit.prevent="signIn()">
       <form-input name="email" type="email" data-mutation-entry="userSignup/setEmail" />
       <form-input name="password" type="password" data-mutation-entry="userSignup/setPassword" />
       <form-input name="confirm" type="password" data-mutation-entry="userSignup/setConfirmPassword" />
@@ -30,6 +30,8 @@ export default {
     }
   },
   setup (_, { root: { $store, $axios } }) {
+    const firstStage = ref(true)
+
     const signIn = () => {
       const { confirmPassword, email, password } = $store.state.userSignup
 
@@ -37,11 +39,16 @@ export default {
         email,
         password,
         retypedPassword: confirmPassword
+      }).then((res: any) => {
+        if (res.status === 201) {
+          firstStage.value = false
+        }
       })
     }
 
     return {
-      signIn
+      signIn,
+      firstStage
     }
   }
 }
