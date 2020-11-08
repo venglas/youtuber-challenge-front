@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/space';
+@import '@/assets/scss/mixins';
 
 .footer-link {
   .icon {

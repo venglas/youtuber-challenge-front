@@ -1,0 +1,8 @@
+@mixin animate-bg-on-click ($time, $bg-color){
+  transition-duration: $time;
+  transition-timing-function: ease-in-out;
+  &:active {
+    background-color: $bg-color;
+    transition-duration: 0s;
+  }
+}

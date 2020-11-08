@@ -4,7 +4,7 @@ export default {
     title: 'youtuber-challenge-front',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
@@ -44,7 +44,9 @@ export default {
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    baseURL: 'http://localhost:8080'
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {

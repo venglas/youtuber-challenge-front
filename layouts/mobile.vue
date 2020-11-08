@@ -2,7 +2,7 @@
   <div class="app-mobile">
     <app-header-mobile />
     <user-menu />
-    <main>
+    <main class="main">
       <Nuxt />
     </main>
     <app-footer-mobile />
@@ -35,5 +35,9 @@ export default {
 .app-mobile {
   background-color: $C_light-base-bg;
   min-height: 100vh;
+}
+.main {
+  min-height: 100vh;
+  padding: calc(#{$S_mobile_header_height} + 2rem) 2rem;
 }
 </style>

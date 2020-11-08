@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <h1>index</h1>
+    <!-- TODO:
+      add login form
+     -->
+
+     <router-link to="/sign-up">Załóz konto</router-link>
   </div>
 </template>
 

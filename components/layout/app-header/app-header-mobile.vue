@@ -24,13 +24,14 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/variables.scss';
-@import '@/assets/scss/shadows.scss';
+@import '@/assets/scss/variables';
+@import '@/assets/scss/mixins';
 
 .app-header {
   &--mobile {
     @include shadow-box-small;
-    position: relative;
+    position: fixed;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
