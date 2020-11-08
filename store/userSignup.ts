@@ -19,7 +19,7 @@ export const mutations: MutationTree<RootState> = {
   setPassword (state: any, payload: String) {
     state.password = payload
   },
-  setCanfirmPassword (state: any, payload: String) {
+  setConfirmPassword (state: any, payload: String) {
     state.confirmPassword = payload
   }
 }

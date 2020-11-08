@@ -1,11 +1,13 @@
 <template>
   <div class="container">
     <form @submit.prevent="signIn()">
-      <form-input name="username" type="text" data-mutation-entry="userSignup/setUsername" />
       <form-input name="email" type="email" data-mutation-entry="userSignup/setEmail" />
       <form-input name="password" type="password" data-mutation-entry="userSignup/setPassword" />
       <form-input name="confirm" type="password" data-mutation-entry="userSignup/setConfirmPassword" />
-      <input type="submit">
+
+      <button-base>
+        Sign up
+      </button-base>
     </form>
   </div>
 </template>
@@ -27,19 +29,18 @@ export default {
       ]
     }
   },
-  setup () {
-    const username = ref('')
-    const email = ref('')
-    const password = ref('')
-    const confirmPassword = ref('')
+  setup (_, { root: { $store, $axios } }) {
+    const signIn = () => {
+      const { confirmPassword, email, password } = $store.state.userSignup
 
-    const signIn = () => { }
+      $axios.post('signup', {
+        email,
+        password,
+        retypedPassword: confirmPassword
+      })
+    }
 
     return {
-      username,
-      email,
-      password,
-      confirmPassword,
       signIn
     }
   }

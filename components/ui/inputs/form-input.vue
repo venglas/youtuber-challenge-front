@@ -1,6 +1,13 @@
 <template>
   <div class="input-wrapper">
-    <input :id="name" v-model="data" :type="type" :placeholder="name" class="input input--form">
+    <input
+      :id="name"
+      v-model="data"
+      :type="type"
+      :placeholder="name"
+      class="input input--form"
+      :required="required"
+    >
     <label :for="name" class="label" :style="{ backgroundColor: labelBg }">{{ name }}</label>
   </div>
 </template>
@@ -13,7 +20,8 @@ export default {
     labelBg: { type: String, default: '#f9f9f9' },
     name: { type: String, default: ' ' },
     type: { type: String, default: 'text' },
-    dataMutationEntry: { type: String, default: '' }
+    dataMutationEntry: { type: String, default: '' },
+    required: { type: Boolean, default: false }
   },
   setup (props, { root: { $store } }) {
     const data = ref('')
