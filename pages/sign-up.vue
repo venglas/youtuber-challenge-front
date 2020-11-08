@@ -9,6 +9,9 @@
         Sign up
       </button-base>
     </form>
+    <form v-else>
+      <form-input name="confirm" type="password" data-mutation-entry="userSignup/setConfirmPassword" />
+    </form>
   </div>
 </template>
 

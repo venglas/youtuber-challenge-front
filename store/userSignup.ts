@@ -4,7 +4,8 @@ export const state = () => ({
   username: '',
   email: '',
   password: '',
-  confirmPassword: ''
+  confirmPassword: '',
+  verificationCode: ''
 })
 
 export type RootState = ReturnType<typeof state>
