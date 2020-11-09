@@ -1,22 +1,13 @@
 <template>
   <div class="container">
-    <form v-if="firstStage" @submit.prevent="signIn()">
-      <form-input name="email" type="email" data-mutation-entry="userSignup/setEmail" />
-      <form-input name="password" type="password" data-mutation-entry="userSignup/setPassword" />
-      <form-input name="confirm" type="password" data-mutation-entry="userSignup/setConfirmPassword" />
-
-      <button-base>
-        Sign up
-      </button-base>
-    </form>
-    <form v-else>
-      <form-input name="confirm" type="password" data-mutation-entry="userSignup/setConfirmPassword" />
-    </form>
+    <signup-form v-if="signupStep === 0" />
+    <signup-confirmation-form v-if="signupStep === 1" />
+    <signup-username-selection v-if="signupStep === 2" />
   </div>
 </template>
 
 <script lang="ts">
-import { ref } from '@nuxtjs/composition-api'
+import { computed } from '@nuxtjs/composition-api'
 
 export default {
   layout: 'mobile',
@@ -32,26 +23,11 @@ export default {
       ]
     }
   },
-  setup (_, { root: { $store, $axios } }) {
-    const firstStage = ref(true)
-
-    const signIn = () => {
-      const { confirmPassword, email, password } = $store.state.userSignup
-
-      $axios.post('signup', {
-        email,
-        password,
-        retypedPassword: confirmPassword
-      }).then((res: any) => {
-        if (res.status === 201) {
-          firstStage.value = false
-        }
-      })
-    }
+  setup (_, { root: { $store } }) {
+    const signupStep = computed(() => $store.state.userSignup.signupStep)
 
     return {
-      signIn,
-      firstStage
+      signupStep
     }
   }
 }

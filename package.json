@@ -16,6 +16,7 @@
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/composition-api": "^0.14.0",
     "@nuxtjs/pwa": "^3.0.2",
+    "@types/lodash.debounce": "^4.0.6",
     "core-js": "^3.6.5",
     "lodash.debounce": "^4.0.8",
     "node-sass": "^5.0.0",

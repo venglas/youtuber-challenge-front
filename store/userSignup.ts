@@ -1,11 +1,13 @@
-import { GetterTree, MutationTree } from 'vuex'
+import { MutationTree } from 'vuex'
 
 export const state = () => ({
   username: '',
   email: '',
   password: '',
   confirmPassword: '',
-  verificationCode: ''
+  verificationCode: '',
+  verificationCodeApi: '',
+  signupStep: 0
 })
 
 export type RootState = ReturnType<typeof state>
@@ -22,11 +24,14 @@ export const mutations: MutationTree<RootState> = {
   },
   setConfirmPassword (state: any, payload: String) {
     state.confirmPassword = payload
-  }
-}
-
-export const getters: GetterTree<RootState, RootState> = {
-  getApplicationWidth (state: any): Number {
-    return state.appWidth
+  },
+  setVerificationCode (state: any, payload: string) {
+    state.verificationCode = payload
+  },
+  setVerificationCodeApi (state: any, payload: string) {
+    state.verificationCodeApi = payload
+  },
+  setSignupStep (state: any, payload: Number) {
+    state.signupStep = payload
   }
 }
