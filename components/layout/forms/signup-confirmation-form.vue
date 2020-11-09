@@ -3,7 +3,7 @@
     <h2>Retype your confirmation code form email.</h2>
     <form-input name="confirm" type="text" data-mutation-entry="userSignup/setVerificationCode" />
 
-    <button-base>
+    <button-base type="submit">
       Confirm
     </button-base>
   </form>

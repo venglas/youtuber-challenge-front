@@ -20,6 +20,7 @@ export default {
       $axios.patch('signup/set-username', { username: username.value, email: email.value }).then(res => {
         if (res.status === 201) {
           $router.push('/home')
+          // TODO: login with this credentials
         }
       })
     }
