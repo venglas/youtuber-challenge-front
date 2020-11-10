@@ -8,6 +8,7 @@
       class="input input--form"
       :required="required"
       :minlength="minlength"
+      :pattern="pattern"
     >
     <label :for="name" class="label" :style="{ backgroundColor: labelBg }">{{ name }}</label>
   </div>
@@ -23,7 +24,8 @@ export default {
     type: { type: String, default: 'text' },
     dataMutationEntry: { type: String, default: '' },
     required: { type: Boolean, default: false },
-    minlength: { type: Number, default: 0 }
+    minlength: { type: Number, default: 0 },
+    pattern: { type: String, default: '.*' }
   },
   setup (props, { root: { $store } }) {
     const data = ref('')
