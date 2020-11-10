@@ -7,6 +7,7 @@
       :placeholder="name"
       class="input input--form"
       :required="required"
+      :minlength="minlength"
     >
     <label :for="name" class="label" :style="{ backgroundColor: labelBg }">{{ name }}</label>
   </div>
@@ -21,7 +22,8 @@ export default {
     name: { type: String, default: ' ' },
     type: { type: String, default: 'text' },
     dataMutationEntry: { type: String, default: '' },
-    required: { type: Boolean, default: false }
+    required: { type: Boolean, default: false },
+    minlength: { type: Number, default: 0 }
   },
   setup (props, { root: { $store } }) {
     const data = ref('')
