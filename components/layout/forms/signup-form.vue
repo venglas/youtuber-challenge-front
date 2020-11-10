@@ -4,9 +4,7 @@
     <form-input name="password" type="password" data-mutation-entry="userSignup/setPassword" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required />
     <form-input name="confirm" type="password" data-mutation-entry="userSignup/setConfirmPassword" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required />
 
-    <p class="error">
-      {{error}}
-    </p>
+    <base-error-line :msg="error" />
 
     <button-base type="submit">
       Sign up
@@ -31,7 +29,7 @@ export default {
         if (res.status === 201) {
           $store.commit('userSignup/setSignupStep', 1)
         }
-      }).catch(err => {
+      }).catch((err: any) => {
         error.value = err.response.data.error
       })
     }

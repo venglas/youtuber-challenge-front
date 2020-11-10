@@ -2,9 +2,9 @@
   <form @submit.prevent="confirmation()">
     <h2>Retype your confirmation code form email.</h2>
     <form-input name="confirm" type="text" data-mutation-entry="userSignup/setVerificationCode" required />
-    <p v-if="confirmationError" class="error">
-      Confirmation code is wrong.
-    </p>
+
+    <base-error-line :msg="confirmationError" />
+
     <button-base type="submit">
       Confirm
     </button-base>
@@ -18,7 +18,7 @@ export default {
   setup (_, { root: { $store, $axios } }) {
     const email = computed(() => $store.state.userSignup.email)
     const verificationCode = computed(() => $store.state.userSignup.verificationCode)
-    const confirmationError = ref(false)
+    const confirmationError = ref('')
 
     onMounted(() => {
       $axios.get('signup/confirmation-code', { params: { email } }).then((res) => {
@@ -30,7 +30,7 @@ export default {
       if (verificationCode.value === $store.state.userSignup.verificationCodeApi) {
         $store.commit('userSignup/setSignupStep', 2)
       } else {
-        confirmationError.value = true
+        confirmationError.value = 'Confirmation code is wrong.'
       }
     }
 
@@ -43,13 +43,4 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/mixins';
-@import '@/assets/scss/variables';
-
-.error {
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: $C_base-error-font;
-}
 </style>

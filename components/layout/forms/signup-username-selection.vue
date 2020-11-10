@@ -1,14 +1,8 @@
 <template>
   <form @submit.prevent="setNickname()">
     <h2>Select your nickname</h2>
-
     <form-input name="Nickname" type="text" data-mutation-entry="userSignup/setUsername" required :minlength="3" />
-
-    <transition name="opacity">
-      <p v-if="error.length > 0" class="error">
-        {{ error }}
-      </p>
-    </transition>
+    <base-error-line :msg="error" />
 
     <button-base type="submit">
       Confirm
