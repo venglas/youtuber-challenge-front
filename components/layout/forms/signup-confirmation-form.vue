@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="confirmation()">
     <h2>Retype your confirmation code form email.</h2>
-    <form-input name="confirm" type="text" data-mutation-entry="userSignup/setVerificationCode" />
+    <form-input name="confirm" type="text" data-mutation-entry="userSignup/setVerificationCode" required />
 
     <button-base type="submit">
       Confirm

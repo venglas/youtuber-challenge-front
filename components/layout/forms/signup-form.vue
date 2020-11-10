@@ -1,8 +1,8 @@
 <template>
   <form @submit.prevent="signIn()">
-    <form-input name="email" type="email" data-mutation-entry="userSignup/setEmail" />
-    <form-input name="password" type="password" data-mutation-entry="userSignup/setPassword" />
-    <form-input name="confirm" type="password" data-mutation-entry="userSignup/setConfirmPassword" />
+    <form-input name="email" type="email" data-mutation-entry="userSignup/setEmail" required />
+    <form-input name="password" type="password" data-mutation-entry="userSignup/setPassword" required />
+    <form-input name="confirm" type="password" data-mutation-entry="userSignup/setConfirmPassword" required />
 
     <button-base type="submit">
       Sign up

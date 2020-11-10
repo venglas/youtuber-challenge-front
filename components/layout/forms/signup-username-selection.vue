@@ -2,7 +2,7 @@
   <form @submit.prevent="setNickname()">
     <h2>Select your nickname</h2>
 
-    <form-input name="Nickname" type="text" data-mutation-entry="userSignup/setUsername" />
+    <form-input name="Nickname" type="text" data-mutation-entry="userSignup/setUsername" required />
 
     <button-base type="submit">
       Confirm
