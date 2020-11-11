@@ -1,14 +1,18 @@
 <template>
-  <form @submit.prevent="confirmation()">
-    <h2>Retype your confirmation code form email.</h2>
-    <form-input name="confirm" type="text" data-mutation-entry="userSignup/setVerificationCode" required />
+  <div class="form-wrapper">
+    <header class="header">
+      <h2>Retype your confirmation code form email.</h2>
+    </header>
+    <form @submit.prevent="confirmation()">
+      <form-input name="confirm" type="text" data-mutation-entry="userSignup/setVerificationCode" required />
 
-    <base-error-line :msg="confirmationError" />
+      <base-error-line :msg="confirmationError" />
 
-    <button-base type="submit">
-      Confirm
-    </button-base>
-  </form>
+      <button-base type="submit">
+        Confirm
+      </button-base>
+    </form>
+  </div>
 </template>
 
 <script>
