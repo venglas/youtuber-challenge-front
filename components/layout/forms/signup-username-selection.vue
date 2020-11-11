@@ -1,13 +1,24 @@
 <template>
-  <form @submit.prevent="setNickname()">
-    <h2>Select your nickname</h2>
-    <form-input name="Nickname" type="text" data-mutation-entry="userSignup/setUsername" required :minlength="3" />
-    <base-error-line :msg="error" />
+  <form-wrapper>
+    <template v-slot:title>
+      Select your nickname
+    </template>
 
-    <button-base type="submit">
-      Confirm
-    </button-base>
-  </form>
+    <template v-slot:short-description>
+      You will be able to sign in with username
+    </template>
+
+    <template v-slot:form>
+      <form @submit.prevent="setNickname()">
+        <form-input name="Nickname" type="text" data-mutation-entry="userSignup/setUsername" required :minlength="3" />
+        <base-error-line :msg="error" />
+
+        <button-base button-base type="submit">
+          Confirm
+        </button-base>
+      </form>
+    </template>
+  </form-wrapper>
 </template>
 
 <script>
