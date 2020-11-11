@@ -1,7 +1,8 @@
 <template>
   <div class="app-mobile">
     <app-header-mobile />
-    <main>
+    <user-menu />
+    <main class="main">
       <Nuxt />
     </main>
     <app-footer-mobile />
@@ -9,10 +10,20 @@
 </template>
 
 <script>
+import { onMounted, computed } from '@nuxtjs/composition-api'
 import AppHeaderMobile from '../components/layout/app-header/app-header-mobile.vue'
+
 export default {
   components: {
     AppHeaderMobile
+  },
+  setup (_, { root: { $store } }) {
+    const appWidth = computed(() => $store.state.app.appWidth)
+    onMounted(() => {
+      console.log(appWidth.value)
+      $store.commit('app/setApplicationWidth', innerWidth)
+      console.log(appWidth.value)
+    })
   }
 }
 </script>
@@ -24,5 +35,9 @@ export default {
 .app-mobile {
   background-color: $C_light-base-bg;
   min-height: 100vh;
+}
+.main {
+  min-height: 100vh;
+  padding: calc(#{$S_mobile_header_height} + 2rem) 2rem;
 }
 </style>

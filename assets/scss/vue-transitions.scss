@@ -1,2 +1,5 @@
-.ease-enter-active, .ease-leave-active { transition: opacity .5s; }
-.ease-enter, .ease-leave-active { opacity: 0; }
+.toggle-user-menu-enter-active, .toggle-user-menu-leave-active { transition: transform .2s, opacity .5s; }
+.toggle-user-menu-enter, .toggle-user-menu-leave-active { opacity: 0; transform: translateX(100vw); }
+
+.opacity-enter-active, .opacity-leave-active { transition: opacity .5s; }
+.opacity-enter, .opacity-leave-active { opacity: 0; }
