@@ -58,7 +58,7 @@ export default {
           $store.commit('userSignup/setSignupStep', 1)
         }
       }).catch((err: any): void => {
-        error.value = err.response.data.error
+        error.value = err.response.data.err
       })
     }
 

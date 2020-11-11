@@ -42,7 +42,7 @@ export default {
           // TODO: dologin with this credentials
         }
       }).catch((err: any) => {
-        error.value = err.response.data.msg
+        error.value = err.response.data.err
       })
     }
 
