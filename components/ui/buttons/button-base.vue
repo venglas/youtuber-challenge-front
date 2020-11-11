@@ -1,5 +1,5 @@
 <template>
-  <button class="button button--base" :type="type">
+  <button class="button button--base" :class="{ 'button--disactivated': !active }" :type="type">
     <slot />
   </button>
 </template>
@@ -7,7 +7,8 @@
 <script>
 export default {
   props: {
-    type: { type: String, default: '' }
+    type: { type: String, default: '' },
+    active: { type: Boolean, default: true }
   }
 }
 </script>
@@ -30,6 +31,10 @@ export default {
       color: $C_base-focused-input-border;
       border: 2px solid $C_base-focused-input-border;
     }
+  }
+  &--disactivated {
+    background-color: $C_light-gray-font;
+    cursor: not-allowed;
   }
 }
 </style>

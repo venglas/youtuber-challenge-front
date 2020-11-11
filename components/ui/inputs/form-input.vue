@@ -9,8 +9,16 @@
       :required="required"
       :minlength="minlength"
       :pattern="pattern"
+      @focus="showInfo = true"
+      @blur="showInfo = false"
     >
     <label :for="name" class="label" :style="{ backgroundColor: labelBg }">{{ name }}</label>
+
+    <transition name="opacity">
+      <p v-if="activeInfo.length > 3 && showInfo" class="input--info">
+        {{ activeInfo }}
+      </p>
+    </transition>
   </div>
 </template>
 
@@ -25,18 +33,18 @@ export default {
     dataMutationEntry: { type: String, default: '' },
     required: { type: Boolean, default: false },
     minlength: { type: Number, default: 0 },
-    pattern: { type: String, default: '.*' }
+    pattern: { type: String, default: '.*' },
+    activeInfo: { type: String, default: '' }
   },
   setup (props, { root: { $store } }) {
     const data = ref('')
+    const showInfo = ref(false)
 
     watch(data, () => {
       $store.commit(props.dataMutationEntry, data.value)
     })
 
-    return {
-      data
-    }
+    return { data, showInfo }
   }
 }
 </script>
@@ -77,6 +85,12 @@ export default {
           opacity: 1;
         }
       }
+    }
+    &--info {
+      @include space-m-v-small;
+      font-weight: 300;
+      font-size: 1.1rem;
+      color: $C_light-gray-font;
     }
   }
 }
