@@ -4,7 +4,9 @@
       add login form
      -->
 
-     <router-link to="/sign-up">Załóz konto</router-link>
+    <router-link to="/sign-up">
+      Załóz konto
+    </router-link>
   </div>
 </template>
 

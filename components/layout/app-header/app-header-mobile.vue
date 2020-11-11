@@ -2,7 +2,7 @@
   <header class="app-header--mobile">
     <logo />
     <searcher />
-    <user-avatar @click.native="toggleMenu"/>
+    <user-avatar @click.native="toggleMenu" />
   </header>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   directives: {
     clickOutside
   },
-  setup(_, {root: { $store } }) {
+  setup (_, { root: { $store } }) {
     const isMenuOpen = computed(() => $store.state.app.menu.isOpen)
     const toggleMenu = () => { $store.commit('app/toggleMenu') }
 

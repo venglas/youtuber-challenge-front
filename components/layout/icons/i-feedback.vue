@@ -1,5 +1,5 @@
 <template>
-<div class="icon-feedback">
+  <div class="icon-feedback">
     <svg
       id="Capa_1"
       enable-background="new 0 0 512 512"
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style>

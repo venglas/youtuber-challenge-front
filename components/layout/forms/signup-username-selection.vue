@@ -18,12 +18,12 @@ export default {
     const email = computed(() => $store.state.userSignup.email)
     const error = ref('')
     const setNickname = () => {
-      $axios.patch('signup/set-username', { username: username.value, email: email.value }).then(res => {
+      $axios.patch('signup/set-username', { username: username.value, email: email.value }).then((res) => {
         if (res.status === 201) {
           $router.push('/home')
           // TODO: dologin with this credentials
         }
-      }).catch(err => {
+      }).catch((err) => {
         error.value = err.response.data.msg
       })
     }

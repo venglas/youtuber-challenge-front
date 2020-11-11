@@ -1,10 +1,10 @@
 <template>
   <div class="icon-help">
     <svg
+      id="Capa_1"
       version="1.1"
       width="100%"
       height="100%"
-      id="Capa_1"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       x="0px"
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style>

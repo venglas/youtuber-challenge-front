@@ -15,7 +15,7 @@
 <script lang="ts">
 import { ref } from '@nuxtjs/composition-api'
 export default {
-  setup (_, { root: { $store, $axios } }) {
+  setup (_: any, { root: { $store, $axios } }) {
     const error = ref('')
 
     const signIn = () => {
@@ -25,7 +25,7 @@ export default {
         email,
         password,
         retypedPassword: confirmPassword
-      }).then((res: any) => {
+      }).then((res: Response) => {
         if (res.status === 201) {
           $store.commit('userSignup/setSignupStep', 1)
         }

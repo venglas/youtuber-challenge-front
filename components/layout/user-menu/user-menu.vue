@@ -4,14 +4,21 @@
 // add links
 <template>
   <transition name="toggle-user-menu">
-    <nav class="menu-user" v-if="isMenuOpen" v-click-outside="toggleMenu">
+    <nav v-if="isMenuOpen" v-click-outside="toggleMenu" class="menu-user">
       <header class="menu-user__header">
         <logo />
-        <button-close @click.native="toggleMenu" class="menu-user__button-close"/>
+        <button-close class="menu-user__button-close" @click.native="toggleMenu" />
       </header>
       <section class="menu-items-wrapper">
         <ul class="menu">
-          <router-link v-for="{ name, icon, link } in menuItems" :key="name" class="menu__item" :to="link" tag="li" @click.native="toggleMenu()">
+          <router-link
+            v-for="{ name, icon, link } in menuItems"
+            :key="name"
+            class="menu__item"
+            :to="link"
+            tag="li"
+            @click.native="toggleMenu()"
+          >
             <component :is="icon" class="menu__icon" />
             <span>
               {{ name }}
@@ -35,7 +42,7 @@ export default {
   directives: {
     clickOutside
   },
-  setup( _, { root: { $store } }) {
+  setup (_, { root: { $store } }) {
     const isMenuOpen = computed(() => $store.state.app.menu.isOpen)
     const toggleMenu = () => { $store.commit('app/toggleMenu') }
     const menuItems = ref([
