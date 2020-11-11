@@ -33,22 +33,31 @@
 
 <script lang="ts">
 import { ref } from '@nuxtjs/composition-api'
+
 export default {
   setup (_: any, { root: { $store, $axios } }) {
     const error = ref('')
 
-    const signIn = () => {
+    const signIn = (): void => {
       const { confirmPassword, email, password } = $store.state.userSignup
 
-      $axios.post('signup', {
+      interface data {
+        email: string;
+        password: string;
+        retypedPassword: string;
+      }
+
+      const data: data = {
         email,
         password,
         retypedPassword: confirmPassword
-      }).then((res: Response) => {
+      }
+
+      $axios.post('signup', data).then((res: Response): void => {
         if (res.status === 201) {
           $store.commit('userSignup/setSignupStep', 1)
         }
-      }).catch((err: any) => {
+      }).catch((err: any): void => {
         error.value = err.response.data.error
       })
     }

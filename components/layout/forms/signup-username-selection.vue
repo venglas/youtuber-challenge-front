@@ -21,20 +21,27 @@
   </form-wrapper>
 </template>
 
-<script>
+<script lang="ts">
 import { computed, ref } from '@nuxtjs/composition-api'
 export default {
   setup (_, { root: { $store, $axios, $router } }) {
     const username = computed(() => $store.state.userSignup.username)
     const email = computed(() => $store.state.userSignup.email)
     const error = ref('')
-    const setNickname = () => {
-      $axios.patch('signup/set-username', { username: username.value, email: email.value }).then((res) => {
+
+    interface setUsernameInterface {
+      username: string;
+      email: string;
+    }
+
+    const setNickname = (): void => {
+      const req: setUsernameInterface = { username: username.value, email: email.value }
+      $axios.patch('signup/set-username', req).then((res: Response) => {
         if (res.status === 201) {
           $router.push('/home')
           // TODO: dologin with this credentials
         }
-      }).catch((err) => {
+      }).catch((err: any) => {
         error.value = err.response.data.msg
       })
     }
@@ -46,7 +53,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

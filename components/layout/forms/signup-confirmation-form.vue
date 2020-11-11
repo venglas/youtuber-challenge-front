@@ -22,7 +22,7 @@
   </form-wrapper>
 </template>
 
-<script>
+<script lang="ts">
 import { computed, onMounted, ref } from '@nuxtjs/composition-api'
 
 export default {
@@ -31,20 +31,20 @@ export default {
     const verificationCode = computed(() => $store.state.userSignup.verificationCode)
     const confirmationError = ref('')
 
-    const activeButton = computed(() => {
+    const activeButton = computed((): boolean => {
       if (verificationCode.value.length !== 5) {
         return false
       }
       return true
     })
 
-    onMounted(() => {
-      $axios.get('signup/confirmation-code', { params: { email } }).then((res) => {
+    onMounted((): void => {
+      $axios.get('signup/confirmation-code', { params: { email } }).then((res: any) => {
         $store.commit('userSignup/setVerificationCodeApi', res.data[0].confirmationCode)
       })
     })
 
-    const confirmation = () => {
+    const confirmation = (): void => {
       if (verificationCode.value === $store.state.userSignup.verificationCodeApi) {
         $store.commit('userSignup/setSignupStep', 2)
       } else {
@@ -56,6 +56,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-</style>
