@@ -1,18 +1,25 @@
 <template>
-  <div class="form-wrapper">
-    <header class="header">
-      <h2>Retype your confirmation code form email.</h2>
-    </header>
-    <form @submit.prevent="confirmation()">
-      <form-input name="confirm" type="text" data-mutation-entry="userSignup/setVerificationCode" required />
+  <form-wrapper>
+    <template v-slot:title>
+      Retype your confirmation code form email.
+    </template>
 
-      <base-error-line :msg="confirmationError" />
+    <template v-slot:short-description>
+      The code have to be 5 digits number.
+    </template>
 
-      <button-base type="submit">
-        Confirm
-      </button-base>
-    </form>
-  </div>
+    <template v-slot:form>
+      <form @submit.prevent="confirmation()">
+        <form-input name="confirm" type="text" data-mutation-entry="userSignup/setVerificationCode" required />
+
+        <base-error-line :msg="confirmationError" />
+
+        <button-base type="submit" :active="activeButton">
+          Confirm
+        </button-base>
+      </form>
+    </template>
+  </form-wrapper>
 </template>
 
 <script>
@@ -23,6 +30,13 @@ export default {
     const email = computed(() => $store.state.userSignup.email)
     const verificationCode = computed(() => $store.state.userSignup.verificationCode)
     const confirmationError = ref('')
+
+    const activeButton = computed(() => {
+      if (verificationCode.value.length !== 5) {
+        return false
+      }
+      return true
+    })
 
     onMounted(() => {
       $axios.get('signup/confirmation-code', { params: { email } }).then((res) => {
@@ -38,10 +52,7 @@ export default {
       }
     }
 
-    return {
-      confirmation,
-      confirmationError
-    }
+    return { confirmation, confirmationError, activeButton }
   }
 }
 </script>
